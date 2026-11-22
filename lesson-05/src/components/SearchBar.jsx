@@ -8,7 +8,7 @@ function SearchBar( { query, onQueryChange,genre,
       <label className="search-bar__field search-bar__field--grow">
         <span className="search-bar__label">חיפוש</span>
         <input
-          className="search-bar__input"
+        className={query ? "search-bar__input search-bar__input--active" : "search-bar__input"}
           type="search"
           placeholder="שם הסרט..."
           value={query}
@@ -18,7 +18,7 @@ function SearchBar( { query, onQueryChange,genre,
 
       <label className="search-bar__field">
         <span className="search-bar__label">ז׳אנר</span>
-        <select className="search-bar__input"
+        <select className={genre !== "all" ? "search-bar__input search-bar__input--active" : "search-bar__input"} 
         value={genre}
           onChange={e => onGenreChange(e.target.value)}>
           <option value="all">כל הז׳אנרים</option>
@@ -37,6 +37,7 @@ function SearchBar( { query, onQueryChange,genre,
           <option value="rating">לפי דירוג</option>
           <option value="year">לפי שנה</option>
           <option value="title">לפי שם</option>
+          <option value="duration">לפי אורך (מהקצר לארוך)</option>
         </select>
       </label>
     </div>
