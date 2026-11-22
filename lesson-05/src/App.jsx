@@ -33,6 +33,9 @@ function App() {
   const isFiltered = onlyAvailable || genre !== "all" || text !== "";
 
   function compareMovies(a, b) {
+       if (sortBy === "duration") {
+  return a.duration - b.duration;
+}
     if (sortBy === "year") {
       return b.year - a.year;
     }
